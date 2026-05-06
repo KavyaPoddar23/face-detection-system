@@ -17,7 +17,7 @@ A containerised full-stack app that takes a live webcam feed, detects faces, dra
 You need Docker Desktop installed and a webcam. That's it.
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/KavyaPoddar23/face-detection-system.git>
 cd face-detection-system
 docker-compose up --build
 ```
