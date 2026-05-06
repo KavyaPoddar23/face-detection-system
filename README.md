@@ -2,11 +2,15 @@
 
 A containerised full-stack app that takes a live webcam feed, detects faces, draws bounding boxes, stores the data in PostgreSQL, and streams everything back to the browser in real time.
 
+## Architecture
+
+![System Architecture](./docs/architecture.png)
+
 **Frontend** → React + TypeScript served via nginx  
 **Backend** → Python FastAPI with WebSocket support  
 **Face Detection** → face_recognition + Pillow (no OpenCV used)  
 **Database** → PostgreSQL storing ROI coordinates per frame  
-**Infrastructure** → Docker + Docker Compose  
+**Infrastructure** → Docker + Docker Compose
 
 ## Quick Start
 
@@ -28,14 +32,15 @@ Open localhost:3000, click **Start Stream**, allow camera access, and you'll see
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| WS | /api/stream/input | Receives raw frames from the browser |
-| WS | /api/stream/output | Serves processed frames to viewers |
-| GET | /api/roi | Returns stored ROI records from the database |
-| GET | /health | Health check |
+| Method | Endpoint           | Description                                  |
+| ------ | ------------------ | -------------------------------------------- |
+| WS     | /api/stream/input  | Receives raw frames from the browser         |
+| WS     | /api/stream/output | Serves processed frames to viewers           |
+| GET    | /api/roi           | Returns stored ROI records from the database |
+| GET    | /health            | Health check                                 |
 
 Query the ROI endpoint with an optional session filter:
+
 ```
 GET /api/roi?session_id=abc-123&limit=50
 ```
