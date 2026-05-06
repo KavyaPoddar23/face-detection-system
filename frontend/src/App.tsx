@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import VideoStream from './components/VideoStream';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Face Detection System</h1>
+    <div>
+      <VideoStream />
     </div>
   );
 }
